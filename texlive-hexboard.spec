@@ -1,6 +1,6 @@
 Name:		texlive-hexboard
 Version:	62102
-Release:	1
+Release:	2
 Summary:	For drawing Hex boards and games
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/hexboard

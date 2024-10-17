@@ -3,7 +3,7 @@ Version:	62102
 Release:	2
 Summary:	For drawing Hex boards and games
 Group:		Publishing
-URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/hexboard
+URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/hexboard
 License:	cc-by-sa-4
 Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/hexboard.r%{version}.tar.xz
 Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/hexboard.doc.r%{version}.tar.xz

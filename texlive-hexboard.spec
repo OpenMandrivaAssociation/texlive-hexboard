@@ -1,41 +1,24 @@
-Name:		texlive-hexboard
-Version:	62102
-Release:	2
+%global tl_name hexboard
+%global tl_revision 62102
+
+Name:		texlive-%{tl_name}
+Epoch:		1
+Version:	1.0
+Release:	%{tl_revision}.1
 Summary:	For drawing Hex boards and games
 Group:		Publishing
-URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/hexboard
+URL:		https://www.ctan.org/tex-archive/graphics/pgf/contrib/hexboard
 License:	cc-by-sa-4
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/hexboard.r%{version}.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/hexboard.doc.r%{version}.tar.xz
-Source2:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/hexboard.source.r%{version}.tar.xz
+Source0:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/hexboard.r%{tl_revision}.tar.xz
+Source1:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/hexboard.doc.r%{tl_revision}.tar.xz
+Source2:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/hexboard.source.r%{tl_revision}.tar.xz
 BuildArch:	noarch
-BuildRequires:	texlive-tlpkg
-Requires(pre):	texlive-tlpkg
-Requires(post):	texlive-kpathsea
+BuildSystem:	texlive
+Provides:	texlive(%{tl_name}) = %{tl_revision}
 
 %description
-hexboard is a package for LaTeX that should also work with
-LuaTeX and XeTeX, that provides functionality for drawing Hex
-boards and games. The aim is a clean, clear design with
-flexibility for drawing different sorts of Hex diagrams.
+hexboard is a package for LaTeX that should also work with LuaTeX and
+XeTeX, that provides functionality for drawing Hex boards and games. The
+aim is a clean, clear design with flexibility for drawing different
+sorts of Hex diagrams.
 
-%prep
-%setup -c -a1 -a2
-%autopatch -p1
-
-%build
-
-%install
-rm -rf tlpkg
-mkdir -p %{buildroot}%{_texmfdistdir}
-cp -a * %{buildroot}%{_texmfdistdir}
-
-%files
-%doc %{_texmfdistdir}/source/latex/hexboard
-%{_texmfdistdir}/tex/latex/hexboard
-%doc %{_texmfdistdir}/doc/latex/hexboard
-
-%post -p %{_sbindir}/texlive.post
-
-%postun
-[ "$1" -eq 0 ] && %{_sbindir}/texlive.post
